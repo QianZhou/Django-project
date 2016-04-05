@@ -1,4 +1,4 @@
-{%extends "base.html"%} {%block head_title%} Welcome | {{block.super}}{%endblock%}
+{%extends "base.html"%} {% load crispy_forms_tags %} {%block head_title%} Welcome | {{block.super}}{%endblock%}
 
 
 <!-- Main component for a primary marketing message or call to action -->
@@ -10,9 +10,15 @@
     <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
 </p>
 {%endblock%} {%block content%}
-<h1>{{title}}</h1> {{request.user}}
+<div class="row">
+    <div class="col-sm-6 col-md-3">
+        <h1>{{title}}</h1> {{request.user}}
 
-<form method="post" action="">{% csrf_token %} {{form.as_p}}
-    <input type="submit" value="Sign Up" />
-</form>
-{%endblock%}
+        <form method="post" action="">{% csrf_token %} {{form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Sign Up" />
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    {%endblock%}
