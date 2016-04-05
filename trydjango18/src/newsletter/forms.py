@@ -12,8 +12,8 @@ class SignUpForm(forms.ModelForm):
         email= self.cleaned_data.get('email')
         email_base, provider=email.split("@")
         domain,extension=provider.split('.')
-        if not domain =='UMD':
-            raise forms.ValidationError("Please use your UMD email address")
+        #if not domain =='UMD':
+            #raise forms.ValidationError("Please use your UMD email address")
   
         if not extension=="edu":
             raise forms.ValidationError("Please use a valid .EDU email address")
